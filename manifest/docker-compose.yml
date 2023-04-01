@@ -13,6 +13,8 @@ services:
       MYSQL_PASSWORD: keyistpassword
     volumes:
       - './sql/script.sql/:/docker-entrypoint-initdb.d/script.sql'
+    deploy:
+      replicas: 1
 
   authorization_server:
     image: 'keyist-authorization-server:latest'
@@ -28,6 +30,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD=keyistpassword
     ports:
       - '8081:8081'
+    deploy:
+      replicas: 1
 
   resource_server:
     image: 'keyist-resource-server:latest'
@@ -48,6 +52,8 @@ services:
         SECURITY_AUTH_CLIENT_PASSWORD=test
     ports:
       - '8080:8080'
+    deploy:
+      replicas: 1
 
   client:
     image: 'keyist-client:latest'
@@ -59,3 +65,5 @@ services:
       - resource_server
     ports:
       - '4200:80'
+    deploy:
+      replicas: 1
