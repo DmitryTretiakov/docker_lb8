@@ -7,7 +7,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: resource-server
-  name: resource-server
+  name: resource-serve
 spec:
   ports:
     - name: "8080"
