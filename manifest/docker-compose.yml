@@ -14,7 +14,7 @@ services:
     volumes:
       - './sql/script.sql/:/docker-entrypoint-initdb.d/script.sql'
     deploy:
-      replicas: 1
+      replicas: 3
 
   authorization_server:
     image: 'keyist-authorization-server:latest'
@@ -31,7 +31,7 @@ services:
     ports:
       - '8081:8081'
     deploy:
-      replicas: 1
+      replicas: 3
 
   resource_server:
     image: 'keyist-resource-server:latest'
@@ -53,7 +53,7 @@ services:
     ports:
       - '8080:8080'
     deploy:
-      replicas: 1
+      replicas: 3
 
   client:
     image: 'keyist-client:latest'
@@ -66,4 +66,4 @@ services:
     ports:
       - '4200:80'
     deploy:
-      replicas: 1
+      replicas: 3
